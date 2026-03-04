@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>シン | AI活用の専門家 - AIで、仕事を10倍速く。</title>
+  <meta name="description" content="企業DXコンサル経営者が教える、本当に使えるAI活用術。AI活用Tips・トレンド解説・経営者のリアルなAI実践記を毎日発信。">
+
+  <!-- OGP -->
+  <meta property="og:title" content="シン | AI活用の専門家">
+  <meta property="og:description" content="企業DXコンサル経営者が教える、本当に使えるAI活用術を毎日発信。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shin-ai.pro">
+  <meta property="og:image" content="https://shin-ai.pro/ogp.png">
+  <meta property="og:site_name" content="シン | AI活用の専門家">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- X (Twitter) Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@shin_ai_pro">
+  <meta name="twitter:creator" content="@shin_ai_pro">
+  <meta name="twitter:title" content="シン | AI活用の専門家">
+  <meta name="twitter:description" content="AIで、仕事を10倍速く。企業DXコンサル経営者が教える、本当に使えるAI活用術。">
+  <meta name="twitter:image" content="https://shin-ai.pro/ogp.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%234f46e5'/><stop offset='100%25' stop-color='%237c3aed'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='url(%23g)'/><text x='50' y='68' font-size='50' font-weight='bold' text-anchor='middle' fill='white' font-family='system-ui'>AI</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0a;
+      --bg-elevated: #111113;
+      --bg-card: #131316;
+      --bg-card-hover: #1a1a1f;
+      --text: #f0f0f0;
+      --text-secondary: #c4c4cc;
+      --text-muted: #71717a;
+      --accent-1: #4f46e5;
+      --accent-2: #7c3aed;
+      --accent-3: #06b6d4;
+      --gradient: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      --gradient-subtle: linear-gradient(135deg, rgba(79,70,229,0.12), rgba(124,58,237,0.08));
+      --gradient-cyan: linear-gradient(135deg, var(--accent-3), var(--accent-1));
+      --border: rgba(255,255,255,0.06);
+      --border-accent: rgba(79,70,229,0.25);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .gradient-text-cyan {
+      background: var(--gradient-cyan);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gradient);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(79,70,229,0.4);
+    }
+
+    .btn-primary svg { width: 20px; height: 20px; fill: currentColor; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 50px;
+      border: 1px solid var(--border-accent);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(79,70,229,0.1);
+      border-color: var(--accent-1);
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-1);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 600px;
+      line-height: 1.9;
+    }
+
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-header .section-desc { margin: 0 auto; }
+
+    /* Fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(79,70,229,0.2), transparent);
+      margin: 0 auto;
+      max-width: 600px;
+    }
+
+    /* ========== Header ========== */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 14px 0;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header .container { display: flex; justify-content: space-between; align-items: center; }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      width: 34px; height: 34px;
+      background: var(--gradient);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 900;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .header-right { display: flex; align-items: center; gap: 12px; }
+
+    .header-x-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .header-x-link:hover { border-color: var(--accent-1); color: var(--text); }
+    .header-x-link svg { width: 14px; height: 14px; fill: currentColor; }
+
+    /* ========== Hero ========== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 24px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(79,70,229,0.12) 0%, rgba(124,58,237,0.05) 40%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(to top, var(--bg), transparent);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent-1);
+      border: 1px solid rgba(79,70,229,0.3);
+      background: rgba(79,70,229,0.06);
+      padding: 8px 20px;
+      border-radius: 50px;
+      margin-bottom: 36px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--accent-1);
+      border-radius: 50%;
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 9vw, 5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 28px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 20px;
+    }
+
+    .hero-sub-small {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+    }
+
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      justify-content: center;
+      margin-top: 72px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .hero-stat-number {
+      font-size: 2rem;
+      font-weight: 900;
+      font-family: 'Inter', sans-serif;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .hero-stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ========== About ========== */
+    .about { padding: 120px 0; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .about-photo-wrapper { position: relative; }
+
+    .about-photo {
+      width: 280px;
+      height: 340px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 2px solid rgba(79,70,229,0.2);
+      position: relative;
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .about-photo-badge {
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gradient);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 50px;
+      white-space: nowrap;
+      letter-spacing: 0.05em;
+    }
+
+    .about-name {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .about-title {
+      font-size: 0.9rem;
+      color: var(--accent-1);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .about-lead {
+      font-size: 1.1rem;
+      font-weight: 500;
+      line-height: 2;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .about-text {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 2;
+      font-size: 0.92rem;
+    }
+
+    .about-career {
+      margin-top: 32px;
+      padding: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    .about-career-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-1);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .career-list { list-style: none; }
+
+    .career-list li {
+      display: flex;
+      gap: 16px;
+      padding: 10px 0;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .career-list li:last-child { border-bottom: none; }
+
+    .career-year {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      color: var(--text-muted);
+      min-width: 48px;
+      font-size: 0.8rem;
+    }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .about-tag {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.04);
+      padding: 6px 14px;
+      border-radius: 50px;
+      border: 1px solid var(--border);
+    }
+
+    /* ========== Numbers ========== */
+    .numbers { padding: 80px 0; }
+
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .number-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      transition: border-color 0.3s;
+    }
+
+    .number-card:hover { border-color: var(--border-accent); }
+
+    .number-value {
+      font-size: 2.5rem;
+      font-weight: 900;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .number-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ========== Content 3-col ========== */
+    .content-section { padding: 120px 0; }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .content-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      transition: transform 0.2s, border-color 0.3s, background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .content-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-accent);
+      background: var(--bg-card-hover);
+    }
+
+    .content-card:hover::before { opacity: 1; }
+
+    .card-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: var(--gradient-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+    }
+
+    /* ========== Expertise ========== */
+    .expertise { padding: 120px 0; }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .expertise-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      display: flex;
+      gap: 20px;
+      align-items: start;
+      transition: border-color 0.3s;
+    }
+
+    .expertise-card:hover { border-color: var(--border-accent); }
+
+    .expertise-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .expertise-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .expertise-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ========== Case Studies ========== */
+    .cases { padding: 120px 0; }
+
+    .case-list { display: flex; flex-direction: column; gap: 24px; }
+
+    .case-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 40px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 28px;
+      align-items: center;
+      transition: border-color 0.3s;
+    }
+
+    .case-card:hover { border-color: var(--border-accent); }
+
+    .case-number {
+      font-size: 3rem;
+      font-weight: 900;
+      font-family: 'Inter', sans-serif;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+
+    .case-content { min-width: 0; }
+
+    .case-industry {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent-1);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .case-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .case-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .case-result {
+      text-align: center;
+      padding: 16px 24px;
+      background: var(--gradient-subtle);
+      border-radius: var(--radius-sm);
+      min-width: 120px;
+    }
+
+    .case-result-value {
+      font-size: 1.6rem;
+      font-weight: 900;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .case-result-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* ========== Process ========== */
+    .process { padding: 120px 0; }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      counter-reset: step;
+    }
+
+    .process-step {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      position: relative;
+      text-align: center;
+      counter-increment: step;
+    }
+
+    .process-step::before {
+      content: counter(step, decimal-leading-zero);
+      font-family: 'Inter', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+
+    .process-step-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .process-step-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ========== Testimonials ========== */
+    .testimonials { padding: 120px 0; }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+
+    .testimonial-text {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 2;
+      margin-bottom: 20px;
+      position: relative;
+      padding-left: 20px;
+      border-left: 2px solid var(--accent-1);
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--gradient-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-1);
+    }
+
+    .testimonial-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .testimonial-role {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ========== Achievements ========== */
+    .achievements { padding: 120px 0; }
+
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .achievement-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: center;
+      transition: border-color 0.3s;
+    }
+
+    .achievement-card:hover { border-color: var(--border-accent); }
+
+    .achievement-icon { font-size: 1.5rem; margin-bottom: 12px; }
+
+    .achievement-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .achievement-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ========== FAQ ========== */
+    .faq { padding: 120px 0; }
+
+    .faq-list {
+      max-width: 740px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 20px 24px;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: inherit;
+      line-height: 1.6;
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+
+    .faq-item.active .faq-question::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer-inner {
+      padding: 0 24px 20px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 2;
+    }
+
+    /* ========== CTA ========== */
+    .cta-section { padding: 120px 0; text-align: center; }
+
+    .cta-box {
+      background: var(--gradient-subtle);
+      border: 1px solid var(--border-accent);
+      border-radius: 24px;
+      padding: 72px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(79,70,229,0.08), transparent 60%);
+      pointer-events: none;
+    }
+
+    .cta-box h2 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 900;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .cta-box p {
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      font-size: 0.95rem;
+      position: relative;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    /* ========== Footer ========== */
+    .footer {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy { font-size: 0.78rem; color: var(--text-muted); }
+
+    .footer-links { display: flex; gap: 24px; }
+
+    .footer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .footer-link:hover { color: var(--text); }
+    .footer-link svg { width: 14px; height: 14px; fill: currentColor; }
+
+    /* ========== Responsive ========== */
+    @media (max-width: 900px) {
+      .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+      .expertise-grid { grid-template-columns: 1fr; }
+      .case-card { grid-template-columns: 1fr; text-align: center; }
+      .case-result { justify-self: center; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .achievements-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+      }
+      .about-photo { width: 220px; height: 280px; }
+      .about-tags { justify-content: center; }
+      .content-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 28px; }
+      .numbers-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; gap: 20px; }
+      .footer-links { gap: 16px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-stats { flex-direction: column; gap: 20px; }
+      .numbers-grid { grid-template-columns: 1fr; }
+      .achievements-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <div class="logo-icon">AI</div>
+        <span>シン</span>
+      </div>
+      <div class="header-right">
+        <a href="https://x.com/shin_ai_pro" target="_blank" rel="noopener noreferrer" class="header-x-link">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @shin_ai_pro
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content fade-in">
+      <div class="hero-badge">AI活用の専門家 / 企業DXコンサル経営者</div>
+      <h1><span class="gradient-text">AIで、仕事を<br>10倍速く。</span></h1>
+      <p class="hero-sub">企業DXコンサル経営者が教える、<br>本当に使えるAI活用術</p>
+      <p class="hero-sub-small">「AIで仕事が10倍速くなる方法を毎日発信」</p>
+      <div class="hero-buttons">
+        <a href="https://x.com/shin_ai_pro" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Xをフォローする
+        </a>
+        <a href="#about" class="btn-secondary">詳しく見る ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-number gradient-text">50+</div>
+          <div class="hero-stat-label">支援企業数</div>
+        </div>
+        <div>
+          <div class="hero-stat-number gradient-text">200%</div>
+          <div class="hero-stat-label">平均業務効率改善</div>
+        </div>
+        <div>
+          <div class="hero-stat-number gradient-text">3年+</div>
+          <div class="hero-stat-label">AI活用実績</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <div class="divider"></div>
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid fade-in">
+        <div class="about-photo-wrapper">
+          <div class="about-photo">
+            <img src="profile.png" alt="シン - AI活用の専門家" loading="lazy">
+          </div>
+          <div class="about-photo-badge">AI × DX の実践者</div>
+        </div>
+        <div class="about-info">
+          <p class="section-label">About</p>
+          <h2 class="about-name">シン</h2>
+          <p class="about-title">AI活用の専門家 / 企業DXコンサル会社経営</p>
+          <p class="about-lead">
+            現場でAIを回しているからこそわかる、<br>実践的なAI活用法を発信しています。
+          </p>
+          <p class="about-text">
+            企業のDXコンサルティング会社を経営しながら、日々最前線でAIツールをビジネスに実装。ChatGPT・Claude・Gemini・画像生成AI・業務自動化ツールなど、あらゆるAIを実際の業務で検証し続けています。
+          </p>
+          <p class="about-text">
+            「AIは知っているだけでは意味がない。使いこなしてこそ価値がある」——この信念のもと、机上の空論ではなく、現場で実証済みのAI活用ノウハウだけをXで毎日発信しています。
+          </p>
+          <div class="about-career">
+            <p class="about-career-title">Career</p>
+            <ul class="career-list">
+              <li>
+                <span class="career-year">現在</span>
+                <span>企業DXコンサルティング会社を経営。50社以上のAI導入・業務改革を支援</span>
+              </li>
+              <li>
+                <span class="career-year"></span>
+                <span>AI活用の専門家としてXで情報発信を開始。実践ベースの発信が反響を呼ぶ</span>
+              </li>
+              <li>
+                <span class="career-year"></span>
+                <span>中小企業から上場企業まで、幅広い業種のDX推進・AI導入プロジェクトに携わる</span>
+              </li>
+            </ul>
+          </div>
+          <div class="about-tags">
+            <span class="about-tag">AI活用コンサル</span>
+            <span class="about-tag">企業DX支援</span>
+            <span class="about-tag">業務自動化</span>
+            <span class="about-tag">ChatGPT / Claude</span>
+            <span class="about-tag">MEO対策</span>
+            <span class="about-tag">SEO対策</span>
+            <span class="about-tag">公式LINE構築</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Numbers -->
+  <div class="divider"></div>
+  <section class="numbers">
+    <div class="container">
+      <div class="numbers-grid">
+        <div class="number-card fade-in">
+          <div class="number-value gradient-text">50<span style="font-size:1.2rem">社</span>+</div>
+          <div class="number-label">AI導入・DX支援の実績</div>
+        </div>
+        <div class="number-card fade-in fade-in-delay-1">
+          <div class="number-value gradient-text">200<span style="font-size:1.2rem">%</span></div>
+          <div class="number-label">平均業務効率の改善率</div>
+        </div>
+        <div class="number-card fade-in fade-in-delay-2">
+          <div class="number-value gradient-text">30<span style="font-size:1.2rem">種</span>+</div>
+          <div class="number-label">活用済みAIツール数</div>
+        </div>
+        <div class="number-card fade-in fade-in-delay-3">
+          <div class="number-value gradient-text-cyan">毎日</div>
+          <div class="number-label">XでAI活用術を発信</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content / 発信内容 -->
+  <div class="divider"></div>
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">Contents</p>
+        <h2 class="section-title">Xでの発信内容</h2>
+        <p class="section-desc">フォローするだけで、明日から使えるAI活用術が毎日届きます</p>
+      </div>
+      <div class="content-grid">
+        <div class="content-card fade-in">
+          <div class="card-icon">💡</div>
+          <h3 class="card-title">AI活用Tips</h3>
+          <p class="card-desc">ChatGPT・Claude・Geminiなどの実践テクニックを紹介。プロンプトの書き方から業務効率化まで、すぐに使えるTipsを毎日発信しています。「知るだけで差がつく」一歩先のAI活用法。</p>
+        </div>
+        <div class="content-card fade-in fade-in-delay-1">
+          <div class="card-icon">📡</div>
+          <h3 class="card-title">AIトレンド解説</h3>
+          <p class="card-desc">最新のAIニュースやリリース情報を、ビジネス視点でわかりやすく解説。「結局、何がすごいの？」「うちの会社に関係ある？」に答える、実務者目線のトレンド分析。</p>
+        </div>
+        <div class="content-card fade-in fade-in-delay-2">
+          <div class="card-icon">🏢</div>
+          <h3 class="card-title">経営者のAI実践記</h3>
+          <p class="card-desc">DXコンサル経営者として、実際にAIを活用している現場のリアルなエピソード。成功事例も失敗談も包み隠さず共有。机上の空論ではない「生きたAI活用」がここに。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise / 専門領域 -->
+  <div class="divider"></div>
+  <section class="expertise">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">Expertise</p>
+        <h2 class="section-title">専門領域</h2>
+        <p class="section-desc">AI導入からDX推進まで、ビジネスの成長に必要なすべてをワンストップで支援</p>
+      </div>
+      <div class="expertise-grid">
+        <div class="expertise-card fade-in">
+          <div class="expertise-icon">🤖</div>
+          <div>
+            <h3 class="expertise-title">AI導入コンサルティング</h3>
+            <p class="expertise-desc">ChatGPT・Claude等の生成AIを業務にどう組み込むか。ツール選定からプロンプト設計、社内展開まで一気通貫で支援します。</p>
+          </div>
+        </div>
+        <div class="expertise-card fade-in fade-in-delay-1">
+          <div class="expertise-icon">⚡</div>
+          <div>
+            <h3 class="expertise-title">業務プロセスのAI自動化</h3>
+            <p class="expertise-desc">繰り返し作業、データ入力、レポート作成…AIで自動化できる業務を特定し、実装まで行います。人がやるべき仕事に集中できる環境を。</p>
+          </div>
+        </div>
+        <div class="expertise-card fade-in">
+          <div class="expertise-icon">📊</div>
+          <div>
+            <h3 class="expertise-title">企業DX戦略の立案・実行</h3>
+            <p class="expertise-desc">デジタル化の全体設計から実行フェーズまで伴走。「ツールを入れて終わり」ではなく、組織に根付くDXを実現します。</p>
+          </div>
+        </div>
+        <div class="expertise-card fade-in fade-in-delay-1">
+          <div class="expertise-icon">🎯</div>
+          <div>
+            <h3 class="expertise-title">AI時代の集客支援</h3>
+            <p class="expertise-desc">MEO対策・SEO対策・公式LINE構築など、AIを活用した最新のデジタルマーケティング施策で集客力を強化します。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <div class="divider"></div>
+  <section class="cases">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">Case Studies</p>
+        <h2 class="section-title">AI導入・DX支援の成果</h2>
+        <p class="section-desc">実際に支援した企業での成果の一部をご紹介します</p>
+      </div>
+      <div class="case-list">
+        <div class="case-card fade-in">
+          <div class="case-number">01</div>
+          <div class="case-content">
+            <p class="case-industry">不動産業</p>
+            <h3 class="case-title">物件情報の入力・掲載作業をAIで自動化</h3>
+            <p class="case-desc">手作業で1件30分かかっていた物件掲載を、AI+自動化で5分以内に短縮。スタッフの残業時間が大幅に削減され、接客対応に集中できる体制に。</p>
+          </div>
+          <div class="case-result">
+            <div class="case-result-value gradient-text">-83%</div>
+            <div class="case-result-label">作業時間削減</div>
+          </div>
+        </div>
+        <div class="case-card fade-in">
+          <div class="case-number">02</div>
+          <div class="case-content">
+            <p class="case-industry">士業事務所</p>
+            <h3 class="case-title">契約書・書類作成業務へのAI活用</h3>
+            <p class="case-desc">定型的な契約書ドラフトや書類作成をAIがアシスト。チェック工数を含めても従来の1/3の時間で完了。品質も安定し、ミスが激減。</p>
+          </div>
+          <div class="case-result">
+            <div class="case-result-value gradient-text">3倍速</div>
+            <div class="case-result-label">書類作成効率</div>
+          </div>
+        </div>
+        <div class="case-card fade-in">
+          <div class="case-number">03</div>
+          <div class="case-content">
+            <p class="case-industry">小売・EC</p>
+            <h3 class="case-title">商品説明文・SNS投稿のAI生成体制を構築</h3>
+            <p class="case-desc">数百点の商品説明文やSNS投稿を、AIを活用して一括生成する仕組みを構築。コンテンツ制作のスピードが飛躍的に向上し、売上にも貢献。</p>
+          </div>
+          <div class="case-result">
+            <div class="case-result-value gradient-text">月50h</div>
+            <div class="case-result-label">工数削減</div>
+          </div>
+        </div>
+        <div class="case-card fade-in">
+          <div class="case-number">04</div>
+          <div class="case-content">
+            <p class="case-industry">飲食・サービス業</p>
+            <h3 class="case-title">MEO対策×AI活用でGoogle Map集客を最適化</h3>
+            <p class="case-desc">AIを活用したレビュー分析・投稿最適化・MEO対策の統合的な集客施策を実施。Google Map経由の来店数が大幅に増加。</p>
+          </div>
+          <div class="case-result">
+            <div class="case-result-value gradient-text">+180%</div>
+            <div class="case-result-label">Map経由集客</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <div class="divider"></div>
+  <section class="process">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">Process</p>
+        <h2 class="section-title">AI導入の進め方</h2>
+        <p class="section-desc">「何から始めればいいかわからない」状態からでも大丈夫です</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step fade-in">
+          <h3 class="process-step-title">ヒアリング</h3>
+          <p class="process-step-desc">現状の業務フローや課題をお聞きし、AI導入の可能性を探ります</p>
+        </div>
+        <div class="process-step fade-in fade-in-delay-1">
+          <h3 class="process-step-title">戦略設計</h3>
+          <p class="process-step-desc">ROIを最大化するAI導入プラン・優先順位を策定します</p>
+        </div>
+        <div class="process-step fade-in fade-in-delay-2">
+          <h3 class="process-step-title">実装・導入</h3>
+          <p class="process-step-desc">ツール選定から実装、社内トレーニングまでハンズオンで支援します</p>
+        </div>
+        <div class="process-step fade-in fade-in-delay-3">
+          <h3 class="process-step-title">運用・改善</h3>
+          <p class="process-step-desc">導入後の定着化と継続的な改善で、成果を最大化させます</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <div class="divider"></div>
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">Voice</p>
+        <h2 class="section-title">クライアントの声</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-in">
+          <p class="testimonial-text">「AIって難しそう」と思っていましたが、シンさんのおかげで社内にすっかり定着しました。何より、導入後も一緒に伴走してくれる姿勢が心強い。</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">A</div>
+            <div>
+              <p class="testimonial-name">A.K 様</p>
+              <p class="testimonial-role">不動産会社 代表取締役</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in fade-in-delay-1">
+          <p class="testimonial-text">書類作成の時間が劇的に減って、本来やるべき業務に集中できるようになりました。AIの使い方だけでなく、業務全体を見直す視点をもらえたのが大きかったです。</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">T</div>
+            <div>
+              <p class="testimonial-name">T.S 様</p>
+              <p class="testimonial-role">士業事務所 所長</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in">
+          <p class="testimonial-text">SNS投稿や商品説明文の作成が圧倒的に楽になりました。AIの活用法を教えてもらってから、チーム全体の生産性が目に見えて上がっています。</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">M</div>
+            <div>
+              <p class="testimonial-name">M.Y 様</p>
+              <p class="testimonial-role">EC事業 マーケティング責任者</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in fade-in-delay-1">
+          <p class="testimonial-text">Google Mapからの集客が2倍以上になりました。AIを使った分析と改善提案が的確で、データに基づいた施策の威力を実感しています。</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">S</div>
+            <div>
+              <p class="testimonial-name">S.H 様</p>
+              <p class="testimonial-role">飲食チェーン エリアマネージャー</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements -->
+  <div class="divider"></div>
+  <section class="achievements">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">Achievements</p>
+        <h2 class="section-title">実績・活動</h2>
+      </div>
+      <div class="achievements-grid">
+        <div class="achievement-card fade-in">
+          <div class="achievement-icon">🏆</div>
+          <h3 class="achievement-title">企業DXコンサル実績 50社+</h3>
+          <p class="achievement-desc">中小企業から上場企業まで、幅広い業種のAI導入・DX推進を支援</p>
+        </div>
+        <div class="achievement-card fade-in fade-in-delay-1">
+          <div class="achievement-icon">📱</div>
+          <h3 class="achievement-title">X（旧Twitter）で毎日発信</h3>
+          <p class="achievement-desc">AI活用術・トレンド解説・実践記を365日休まず発信中</p>
+        </div>
+        <div class="achievement-card fade-in fade-in-delay-2">
+          <div class="achievement-icon">🎤</div>
+          <h3 class="achievement-title">AI活用セミナー登壇</h3>
+          <p class="achievement-desc">企業研修・業界団体向けにAI活用セミナーを多数開催</p>
+        </div>
+        <div class="achievement-card fade-in">
+          <div class="achievement-icon">🔧</div>
+          <h3 class="achievement-title">30種+のAIツール実践検証</h3>
+          <p class="achievement-desc">ChatGPT, Claude, Gemini, Midjourney, 各種自動化ツールを実務で検証</p>
+        </div>
+        <div class="achievement-card fade-in fade-in-delay-1">
+          <div class="achievement-icon">📈</div>
+          <h3 class="achievement-title">平均200%の業務効率改善</h3>
+          <p class="achievement-desc">支援企業の業務効率を平均2倍以上に改善した実績</p>
+        </div>
+        <div class="achievement-card fade-in fade-in-delay-2">
+          <div class="achievement-icon">🌐</div>
+          <h3 class="achievement-title">デジタルマーケティング支援</h3>
+          <p class="achievement-desc">MEO・SEO・LINE構築のノウハウを組み合わせた集客支援</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <div class="divider"></div>
+  <section class="faq">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">FAQ</p>
+        <h2 class="section-title">よくある質問</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item fade-in">
+          <button class="faq-question">AIについて詳しくなくても、導入できますか？</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">もちろんです。「AIって何ができるの？」というゼロの状態から支援しています。専門用語は使わず、わかりやすくご説明しますのでご安心ください。</div>
+          </div>
+        </div>
+        <div class="faq-item fade-in">
+          <button class="faq-question">小規模な会社でもAI導入の効果はありますか？</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">むしろ少人数のチームほど、AI活用の効果は絶大です。一人ひとりの業務効率が上がれば、少ないリソースでも大きな成果を出せるようになります。</div>
+          </div>
+        </div>
+        <div class="faq-item fade-in">
+          <button class="faq-question">どんな業種でも対応できますか？</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">不動産、士業、小売・EC、飲食、製造業など、幅広い業種での支援実績があります。業種を問わず、業務の中にAIで効率化できるポイントは必ずあります。</div>
+          </div>
+        </div>
+        <div class="faq-item fade-in">
+          <button class="faq-question">費用感を教えてください</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">プロジェクトの規模や内容によって異なります。まずはXのDMからお気軽にご相談ください。初回のヒアリングは無料で対応しています。</div>
+          </div>
+        </div>
+        <div class="faq-item fade-in">
+          <button class="faq-question">Xのフォローだけでも学べることはありますか？</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">はい。Xでは毎日、すぐに実践できるAI活用術を発信しています。まずはフォローして、日々の発信から取り入れられるものを試してみてください。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="divider"></div>
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box fade-in">
+        <p class="section-label">Follow & Contact</p>
+        <h2><span class="gradient-text">毎日、AI活用術を発信中</span></h2>
+        <p>まずはXをフォローして、明日から使えるAI活用術を受け取ってください。<br>DX・AI導入のご相談はXのDMからお気軽にどうぞ。</p>
+        <div class="cta-buttons">
+          <a href="https://x.com/shin_ai_pro" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Xをフォローする
+          </a>
+          <a href="https://x.com/shin_ai_pro" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            DMで無料相談する →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">&copy; 2025 シン All Rights Reserved.</p>
+        <div class="footer-links">
+          <a href="https://x.com/shin_ai_pro" target="_blank" rel="noopener noreferrer" class="footer-link">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            @shin_ai_pro
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    // Scroll fade-in
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.parentElement;
+          const isActive = item.classList.contains('active');
+          document.querySelectorAll('.faq-item.active').forEach(i => i.classList.remove('active'));
+          if (!isActive) item.classList.add('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
